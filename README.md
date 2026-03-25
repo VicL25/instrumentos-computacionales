@@ -1,4 +1,4 @@
-# 📊 Instrumentos Computacionales
+# Instrumentos Computacionales
 
 ¡Bienvenidos y bienvenidas! 🎉
 
