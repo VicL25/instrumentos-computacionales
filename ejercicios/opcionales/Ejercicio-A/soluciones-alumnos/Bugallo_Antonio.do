@@ -99,7 +99,7 @@ table () (cobertura_alta), stat(mean life_exp) stat(sd life_exp) stat(max life_e
 
 *14: Crear una tabla que muestre, entre los países con gnp_pc menor a 4000, la cantidad y el porcentaje por fila de países con cobertura baja y alta de agua segura según región.
 
-tabulate cobertura_alta region if gnp_pc < 4000, row
+tabulate region cobertura_alta if gnp_pc < 4000, row
 
 
 *Parte 5 del TPA: 
