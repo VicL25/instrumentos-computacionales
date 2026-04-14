@@ -72,20 +72,17 @@ drop if country == "Yugoslavia"
 
 *notar que al hacer esto dice que se han eliminado 0 observaciones, al ya haber sido eliminada
 
-*9: Mostrar los 10 países con mayor esperanza de vida. Para ello, se ordenan las observaciones en forma descendente según life_exp mediante gsort. Además, se usa la opción generate(newvar) para crear una variable que asigna un puesto según la esperanza de vida, de modo que los países con el mismo valor comparten la misma posición. Luego, se listan los países cuyo puesto es menor o igual a 10.
-gsort - life_exp  , generate(newvar)
-rename newvar puesto
-
-*No agrego la opción mfirst porque la variable price no tiene missings.
-
-list country life_exp puesto if puesto <= 10
-
-*Como varios países presentan el mismo valor de esperanza de vida, se incluyó la variable puesto para identificar la posición correspondiente a cada grupo de países con igual esperanza de vida. Por este motivo, al considerar hasta el puesto 10, se obtienen 25 países en total.
-
+*9: Mostrar los 10 países con mayor esperanza de vida. Para ello, se ordenan las observaciones en forma descendente según life_exp mediante gsort. Además, se listan los países cuyo valor de esperanza de vida es mayor o igual a 75 para que todos los que compartan 75 (el valor del ultimo puesto), aparezcan en la lista
+gsort - life_exp
+list region country life_exp in 1/10, clean
+list region country life_exp if life_exp >= 75, clean
 
 *Parte 4 del TPA: 
-*10:Obtener media, mediana, desvío estándar, mínimo y máximo de life_exp, safe_water e ingreso_miles. Para ello:
-tabstat life_exp safe_water gnp_pc, statistics(mean p50 sd min max)
+*10:Obtener media, mediana, desvío estándar, mínimo y máximo de life_exp, safe_water e ingreso_miles. Para ello primero creamos la variable de ingresos per cápita en miles: 
+gen ingreso_miles = gnp_pc / 1000
+label variable ingreso_miles "Ingreso per capita (miles USD)"
+
+tabstat life_exp safe_water ingreso_miles, statistics(mean p50 sd min max)
 
 
 *11: Crear una tabla que muestre los ingresos per cápita promedios según region.
