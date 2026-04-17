@@ -15,6 +15,10 @@ En la carpeta `bases/` pueden encontrar los siguientes archivos:
 > [!important]
 >  Sugerencia: abrir cada archivo para familiarizarse con su estructura y contenido antes de comenzar a trabajar.
 
+## Entrega
+> [!important]
+> Debe enviarse al mail santiagocerutti1@gmail.com antes de la próxima clase (21/4).
+
 ## Consigna
 
 Crear un do-file que resuelva los siguientes puntos.
